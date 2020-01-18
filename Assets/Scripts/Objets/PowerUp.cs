@@ -19,8 +19,13 @@ public abstract class PowerUp : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<SpriteRenderer>().sprite = spriteSide;
+        // Initializing sprite to spriteSide
+        SpriteRenderer spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        spriteRenderer.sprite = spriteSide;
         viewFromTop = false;
+
+        // Default name of PowerUp object (should be changed for other subclasses)
+        gameObject.name = "PowerUp";
     }
 
     // Update is called once per frame
@@ -45,6 +50,7 @@ public abstract class PowerUp : MonoBehaviour
             holdingPlayer = otherObj.gameObject; // Player holds object to constently apply the effect
             collider.enabled = false;
             isHolded = true;
+            changeSprite();
         }
     }
 
@@ -57,13 +63,22 @@ public abstract class PowerUp : MonoBehaviour
         SpriteRenderer spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         if (viewFromTop)
         {
+            Debug.Log("Changing sprite from top to side view");
             spriteRenderer.sprite = spriteSide;
             viewFromTop = false;
         }
         else
         {
+            Debug.Log("Changing sprite from side to top view");
             spriteRenderer.sprite = spriteTop;
             viewFromTop = true;
         }
+    }
+
+    // Comparison is done on the name of the PowerUp
+    public bool Equals(PowerUp other)
+    {
+        if (other == null) return false;
+        return (this.name.Equals(other.name));
     }
 }

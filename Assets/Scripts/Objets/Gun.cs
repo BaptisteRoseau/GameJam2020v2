@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Gun : PowerUp
 {
@@ -8,14 +9,22 @@ public class Gun : PowerUp
     public GameObject belettePrefab;
     public float arrowSpeed = 20;
     public int ammoLeft = 15;
+    public int ammoMax = 15;
     public float shotDelayTimeSec = 0.5f; // seconds
     public float nextShotTime = 0.0f; // seconds
 
+    public Text ammoLeftText;
 
+    // Sets the name of the PowerUp
+    void Start()
+    {
+        gameObject.name = "Gun";
+    }
 
     // Shoot a ball from the object
     public override void applyEffect(GameObject player)
     {
+        // Fire one shot
         if (Input.GetButtonDown(player.GetComponent<Player>().fireCommand))
         {
             if (ammoLeft > 0 && Time.time > nextShotTime)
@@ -36,13 +45,14 @@ public class Gun : PowerUp
                 nextShotTime = Time.time + shotDelayTimeSec;
 
                 Destroy(ball, 1f);
+                if (ammoLeft <= 0)
+                {
+                    Destroy(gameObject);
+                }
             }
         }
-    }
 
-    private IEnumerator ShootDelay()
-    {
-        yield return new WaitForSeconds(shotDelayTimeSec);
-        //canShoot = ammoLeft > 0 ? true : false;
+        // Display amount of ammo left
+        ammoLeftText.text = "Ammo " + ammoLeft.ToString() + " / " + ammoMax.ToString();
     }
 }
