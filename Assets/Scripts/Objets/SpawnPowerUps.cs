@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnObjects : MonoBehaviour
+public class SpawnPowerUps : MonoBehaviour
 {
     public float spawnTimeMin = 3.0f;  // Minimum spawn time in seconds seconds
     public float spawnTimeMax = 5.0f;  // Maximum spawn time in seconds seconds

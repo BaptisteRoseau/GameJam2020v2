@@ -7,13 +7,20 @@ public abstract class PowerUp : MonoBehaviour
     public bool isHolded = false; // Whether the object has been picked up by a player or not
     public bool isPickable = true; // Whether the object can be hold by another object or not (ex: weapon (true), buff (false))
 
-    private GameObject holdingPlayer = null; // The player holding the object. Initially set to null
     public Collider2D collider;
     
+    private GameObject holdingPlayer = null; // The player holding the object. Initially set to null
+
+    // Utils to change the sprite
+    public Sprite spriteTop  = null; // Sprite view from top
+    public Sprite spriteSide = null; // Sprite view from side
+    private bool viewFromTop = false;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        GetComponent<SpriteRenderer>().sprite = spriteSide;
+        viewFromTop = false;
     }
 
     // Update is called once per frame
@@ -43,4 +50,20 @@ public abstract class PowerUp : MonoBehaviour
 
     // Attach the effect of the object to the player
     public abstract void applyEffect(GameObject player);
+
+    // Changes the sprite of the PowerUp
+    public void changeSprite()
+    {
+        SpriteRenderer spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        if (viewFromTop)
+        {
+            spriteRenderer.sprite = spriteSide;
+            viewFromTop = false;
+        }
+        else
+        {
+            spriteRenderer.sprite = spriteTop;
+            viewFromTop = true;
+        }
+    }
 }
