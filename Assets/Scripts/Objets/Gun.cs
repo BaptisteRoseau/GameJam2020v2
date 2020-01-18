@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Gun : PowerUp
 {
-    public GameObject crosshair;
+    //public GameObject crosshair;
     public GameObject ballPrefab; // TODO: bullet prefab (destroy on collision)
     public float arrowSpeed;
     
@@ -14,7 +14,8 @@ public class Gun : PowerUp
     {
         if (Input.GetButtonDown(player.GetComponent<Player>().fireCommand))
         {
-            Vector2 shootingDirection = crosshair.transform.localPosition;
+            GameObject crosshair = player.GetComponent<Player>().crosshair;
+            Vector2 shootingDirection = crosshair.transform.position - player.transform.position;
             shootingDirection.Normalize();
 
             GameObject ball = Instantiate(ballPrefab, crosshair.transform.position, Quaternion.identity);

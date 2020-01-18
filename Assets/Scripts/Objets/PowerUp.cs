@@ -28,27 +28,17 @@ public abstract class PowerUp : MonoBehaviour
     // Allow a player to pick up the object when touching it
     void OnTriggerEnter2D(Collider2D otherObj)
     {
-        Debug.Log("Collisions detected");
         if (!isHolded && otherObj.gameObject.tag == "Player")
         {
-            Debug.Log("Not holded yet");
             if (isPickable)
             {
                 // For weapons
-                Debug.Log("Picking up");
-                pickUp(otherObj.gameObject);
+                otherObj.gameObject.GetComponent<Player>().pickUpObject(gameObject);
             }
-            Debug.Log("Holding");
             holdingPlayer = otherObj.gameObject; // Player holds object to constently apply the effect
             collider.enabled = false;
             isHolded = true;
         }
-    }
-    
-    // Attach the object to the player
-    void pickUp(GameObject e)
-    {
-        //transform.parent = player.transform;
     }
 
     // Attach the effect of the object to the player
