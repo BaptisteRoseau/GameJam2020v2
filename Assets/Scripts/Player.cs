@@ -65,4 +65,10 @@ public class Player : MonoBehaviour
         Destroy(ball, 1f);
     
     }
+
+    // Attach the object to the player
+    void pickUpObject(GameObject obj)
+    {
+        //transform.parent = player.transform;
+    }
 }
