@@ -579,10 +579,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 718493216}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.45, y: -2.87, z: 0}
-  m_LocalScale: {x: 0.657397, y: 0.78008896, z: 1}
-  m_Children:
-  - {fileID: 1443803431}
+  m_LocalPosition: {x: 0.64, y: -2.721, z: 0}
+  m_LocalScale: {x: 0.2774215, y: 1.0773029, z: 1}
+  m_Children: []
   m_Father: {fileID: 286583475}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -646,13 +645,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9125baf1b1d9f84d8038266ccb71d0d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   isHolded: 0
   isPickable: 1
   collider: {fileID: 718493220}
-  crosshair: {fileID: 1443803430}
-  ballPrefab: {fileID: 7012869361308211707, guid: dcd0cb446edbbb349976f57efa0e7cbc,
+  belettePrefab: {fileID: 7012869361308211707, guid: dcd0cb446edbbb349976f57efa0e7cbc,
     type: 3}
   arrowSpeed: 20
 --- !u!61 &718493220
@@ -731,8 +729,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ba1b2c74d3f1fe4d80e4bf7228ea7cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   cam: {fileID: 519420031}
   cam2: {fileID: 1236470710}
 --- !u!1001 &1003132189
@@ -751,6 +749,21 @@ PrefabInstance:
         type: 3}
       propertyPath: fireCommand
       value: Fire2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470370759368747536, guid: c7216fbcab7e25e4f9dd36a117fbb616,
+        type: 3}
+      propertyPath: moveHorizontallyCommand
+      value: Horizontal2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470370759368747536, guid: c7216fbcab7e25e4f9dd36a117fbb616,
+        type: 3}
+      propertyPath: moveVerticalyCommand
+      value: Vertical2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470370759368747536, guid: c7216fbcab7e25e4f9dd36a117fbb616,
+        type: 3}
+      propertyPath: crosshairMovementCommand
+      value: CrosshairMove2
       objectReference: {fileID: 0}
     - target: {fileID: 3470370759368747540, guid: c7216fbcab7e25e4f9dd36a117fbb616,
         type: 3}
