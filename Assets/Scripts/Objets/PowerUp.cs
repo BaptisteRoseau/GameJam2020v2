@@ -46,9 +46,9 @@ public abstract class PowerUp : MonoBehaviour
     }
     
     // Attach the object to the player
-    void pickUp(GameObject player)
+    void pickUp(GameObject e)
     {
-        transform.parent = player.transform;
+        //transform.parent = player.transform;
     }
 
     // Attach the effect of the object to the player
