@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     private float crosshairMovement = 0f;
     private float moveInputH;
     private float moveInputV;
+    public int hp;
     public GameObject crosshair;
     public string fireCommand = "Fire";
 
@@ -64,6 +65,15 @@ public class Player : MonoBehaviour
         ball.GetComponent<Rigidbody2D>().velocity = shootingDirection * arrowSpeed;
         Destroy(ball, 1f);
     
+    }
+
+    public void gotHit() 
+    {
+        this.hp--;
+        if (this.hp <= 0) 
+        {
+            Destroy(gameObject);
+        }
     }
 
     // Attach the object to the player
