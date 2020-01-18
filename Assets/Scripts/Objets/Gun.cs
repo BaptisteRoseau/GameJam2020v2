@@ -6,8 +6,8 @@ public class Gun : PowerUp
 {
     //public GameObject crosshair;
     public GameObject belettePrefab;
-    public float arrowSpeed;
-    public int ammoLeft = 3;
+    public float arrowSpeed = 20;
+    public int ammoLeft = 15;
     public float shotDelayTimeSec = 0.5f; // seconds
     public float nextShotTime = 0.0f; // seconds
 
