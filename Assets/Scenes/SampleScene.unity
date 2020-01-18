@@ -566,7 +566,7 @@ MonoBehaviour:
   isHolded: 0
   isPickable: 1
   collider: {fileID: 718493220}
-  ballPrefab: {fileID: 7012869361308211707, guid: dcd0cb446edbbb349976f57efa0e7cbc,
+  belettePrefab: {fileID: 7012869361308211707, guid: dcd0cb446edbbb349976f57efa0e7cbc,
     type: 3}
   arrowSpeed: 20
 --- !u!61 &718493220

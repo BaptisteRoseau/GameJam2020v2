@@ -5,7 +5,7 @@ using UnityEngine;
 public class Gun : PowerUp
 {
     //public GameObject crosshair;
-    public GameObject ballPrefab; // TODO: bullet prefab (destroy on collision)
+    public GameObject belettePrefab;
     public float arrowSpeed;
     
 
@@ -18,7 +18,8 @@ public class Gun : PowerUp
             Vector2 shootingDirection = crosshair.transform.position - player.transform.position;
             shootingDirection.Normalize();
 
-            GameObject ball = Instantiate(ballPrefab, crosshair.transform.position, Quaternion.identity);
+            Belette ball = Instantiate(belettePrefab, crosshair.transform.position, Quaternion.identity).GetComponent<Belette>();
+            ball.fromPlayer = player.GetComponent<Player>().num_player;
             ball.GetComponent<Rigidbody2D>().velocity = shootingDirection * arrowSpeed;
             Destroy(ball, 1f);
         }
