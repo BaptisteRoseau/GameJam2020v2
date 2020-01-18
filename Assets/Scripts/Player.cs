@@ -9,7 +9,6 @@ public class Player : MonoBehaviour
     private float crosshairMovement = 0f;
     private float moveInputH;
     private float moveInputV;
-    public int hp;
     public GameObject crosshair;
 
     public Rigidbody2D rb;
@@ -28,6 +27,12 @@ public class Player : MonoBehaviour
     public string crosshairMovementCommand = "CrosshairMove";
     public int playerFactor = 1; // or -1 for player 2
 
+    public int hp;
+    public int bleedingThreshold;
+    public GameObject bloodStainPrefab;
+    public float period;
+    private float time = 0;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -43,6 +48,15 @@ public class Player : MonoBehaviour
         rb.velocity = new Vector2(moveInputH * speed, rb.velocity.x);
 
         gameObject.transform.RotateAround(this.transform.position, Vector3.forward, crosshairMovement * Time.fixedDeltaTime * -crosshairSpeed);
+
+        if(this.hp <= this.bleedingThreshold)
+        {
+            this.time += Time.fixedDeltaTime;
+            if (this.time >= this.period) {
+                this.time = 0;
+                ElSaignoFamoso stains = Instantiate(bloodStainPrefab, gameObject.transform.position, Quaternion.identity).GetComponent<ElSaignoFamoso>();
+            }
+        }
     }
 
     // Attach the object to the player

@@ -135,6 +135,18 @@ MonoBehaviour:
     type: 3}
   arrowSpeed: 20
   num_player: 1
+  holdedObjects: []
+  child: {fileID: 0}
+  fireCommand: Fire
+  moveHorizontallyCommand: Horizontal
+  moveVerticalyCommand: Vertical
+  crosshairMovementCommand: CrosshairMove
+  playerFactor: 1
+  hp: 2
+  bleedingThreshold: 1
+  bloodStainPrefab: {fileID: 978486254060528915, guid: 33bc2a611f6c8a24280dc8ac86d80085,
+    type: 3}
+  period: 0.3
 --- !u!50 &3470370759368747539
 Rigidbody2D:
   serializedVersion: 4
