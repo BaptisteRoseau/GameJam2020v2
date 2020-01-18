@@ -13,7 +13,7 @@ public class Gun : PowerUp
     public float shotDelayTimeSec = 0.5f; // seconds
     public float nextShotTime = 0.0f; // seconds
 
-    public Text ammoLeftText;
+    private GameObject componentAmmoLeftText;
 
     // Sets the name of the PowerUp
     void Start()
@@ -24,6 +24,9 @@ public class Gun : PowerUp
     // Shoot a ball from the object
     public override void applyEffect(GameObject player)
     {
+        // Selecting which text box will be used to display ammo
+        componentAmmoLeftText = GameObject.Find("AmmoLeftText"+ player.GetComponent<Player>().num_player.ToString());
+
         // Fire one shot
         if (Input.GetButtonDown(player.GetComponent<Player>().fireCommand))
         {
@@ -50,9 +53,9 @@ public class Gun : PowerUp
                     Destroy(gameObject);
                 }
             }
-        }
 
+        }
         // Display amount of ammo left
-        ammoLeftText.text = "Ammo " + ammoLeft.ToString() + " / " + ammoMax.ToString();
+        componentAmmoLeftText.GetComponent<Text>().text = "Ammo " + ammoLeft.ToString() + " / " + ammoMax.ToString();
     }
 }
