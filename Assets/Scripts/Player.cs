@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
     public float arrowSpeed;
     public int num_player;
     
-    public GameObject[] holdedObjects;
+    public List<GameObject> holdedObjects;
     public Transform child;
 
     // Player commands
@@ -50,12 +50,21 @@ public class Player : MonoBehaviour
     {
         // Linking power up 
         obj.transform.parent = gameObject.transform;
+
+        // Adding obj to the holded objects of the 
+        holdedObjects.Add(obj);
+
+        // Replacing the sprite on the crosshair
+        obj.transform.position = crosshair.transform.position;
+        obj.transform.rotation = transform.rotation;
+
     }
 
     // Drop the object from the player and destroy it
     public void dropObject(GameObject obj)
     {
         // Droping power up 
+        holdedObjects.Remove(obj);
         Destroy(obj);
     }
 
