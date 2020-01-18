@@ -62,6 +62,14 @@ public class Player : MonoBehaviour
     // Attach the object to the player
     public void pickUpObject(GameObject obj)
     {
+        // Deleting previous instance of object if already present
+        if (holdedObjects.Contains(obj))
+        {
+            GameObject previousObject = holdedObjects.Find(r => r.name == obj.name);
+            dropObject(previousObject);
+            Debug.Log("Found and removed previous " + obj.name);
+        }
+
         // Linking power up 
         obj.transform.parent = gameObject.transform;
 
@@ -72,6 +80,8 @@ public class Player : MonoBehaviour
         obj.transform.position = crosshair.transform.position;
         obj.transform.rotation = transform.rotation;
 
+        // Some debugg
+        holdedObjects.ForEach(Debug.Log);
     }
 
     // Drop the object from the player and destroy it
