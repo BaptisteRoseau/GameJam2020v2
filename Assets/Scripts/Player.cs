@@ -11,14 +11,22 @@ public class Player : MonoBehaviour
     private float moveInputV;
     public int hp;
     public GameObject crosshair;
-    public string fireCommand = "Fire";
 
     public Rigidbody2D rb;
 
     public GameObject ballPrefab;
     public float arrowSpeed;
     public int num_player;
+    
+    public GameObject[] holdedObjects;
+    public Transform child;
 
+    // Player commands
+    public string fireCommand = "Fire";
+    public string moveHorizontallyCommand = "Horizontal";
+    public string moveVerticalyCommand = "Vertical";
+    public string crosshairMovementCommand = "CrosshairMove";
+    public int playerFactor = 1; // or -1 for player 2
 
     void Start()
     {
@@ -27,44 +35,28 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
-
-
-        if (num_player == 1)
-        {
-            if (Input.GetButtonDown("Fire"))
-            {
-                Shoot();
-            }
-            moveInputH = Input.GetAxis("Vertical");
-            moveInputV = Input.GetAxis("Horizontal");
-            crosshairMovement = Input.GetAxisRaw("CrosshairMove");
-        }
-        else if (num_player == 2)
-        {
-            if (Input.GetButtonDown("Fire2"))
-            {
-                Shoot();
-            }
-            moveInputH = -Input.GetAxis("Vertical2");
-            moveInputV = -Input.GetAxis("Horizontal2");
-            crosshairMovement = Input.GetAxisRaw("CrosshairMove2");
-        }
+        moveInputH = playerFactor*Input.GetAxis(moveVerticalyCommand);
+        moveInputV = playerFactor*Input.GetAxis(moveHorizontallyCommand);
+        crosshairMovement = Input.GetAxisRaw(crosshairMovementCommand);
 
         rb.velocity = new Vector2(moveInputH * speed, rb.velocity.y);
         rb.velocity = new Vector2(moveInputV * speed, rb.velocity.x);
 
-        crosshair.transform.RotateAround(this.transform.position, Vector3.forward, crosshairMovement * Time.fixedDeltaTime * -crosshairSpeed);
+        gameObject.transform.RotateAround(this.transform.position, Vector3.forward, crosshairMovement * Time.fixedDeltaTime * -crosshairSpeed);
     }
 
-    void Shoot()
+    // Attach the object to the player
+    public void pickUpObject(GameObject obj)
     {
-        Vector2 shootingDirection = crosshair.transform.localPosition;
-        shootingDirection.Normalize();
+        // Linking power up 
+        obj.transform.parent = gameObject.transform;
+    }
 
-        GameObject ball = Instantiate(ballPrefab, crosshair.transform.position, Quaternion.identity);
-        ball.GetComponent<Rigidbody2D>().velocity = shootingDirection * arrowSpeed;
-        Destroy(ball, 1f);
-    
+    // Drop the object from the player and destroy it
+    public void dropObject(GameObject obj)
+    {
+        // Droping power up 
+        Destroy(obj);
     }
 
     public void gotHit() 
@@ -76,9 +68,12 @@ public class Player : MonoBehaviour
         }
     }
 
-    // Attach the object to the player
-    void pickUpObject(GameObject obj)
+    // Drops all the objects of the current player
+    public void dropAllObject()
     {
-        //transform.parent = player.transform;
+        foreach(GameObject obj in holdedObjects)
+        {
+            dropObject(obj);
+        }
     }
 }
