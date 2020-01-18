@@ -35,12 +35,12 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
-        moveInputH = playerFactor*Input.GetAxis(moveVerticalyCommand);
-        moveInputV = playerFactor*Input.GetAxis(moveHorizontallyCommand);
+        moveInputV = playerFactor*Input.GetAxis(moveVerticalyCommand);
+        moveInputH = playerFactor*Input.GetAxis(moveHorizontallyCommand);
         crosshairMovement = Input.GetAxisRaw(crosshairMovementCommand);
 
-        rb.velocity = new Vector2(moveInputH * speed, rb.velocity.y);
-        rb.velocity = new Vector2(moveInputV * speed, rb.velocity.x);
+        rb.velocity = new Vector2(moveInputV * speed, rb.velocity.y);
+        rb.velocity = new Vector2(moveInputH * speed, rb.velocity.x);
 
         gameObject.transform.RotateAround(this.transform.position, Vector3.forward, crosshairMovement * Time.fixedDeltaTime * -crosshairSpeed);
     }
