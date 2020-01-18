@@ -54,15 +54,15 @@ public abstract class PowerUp : MonoBehaviour
     // Changes the sprite of the PowerUp
     public void changeSprite()
     {
-        SpriteRenderer sprite = GetComponent<SpriteRenderer>();
+        SpriteRenderer spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         if (viewFromTop)
         {
-            sprite.sprite = spriteSide;
+            spriteRenderer.sprite = spriteSide;
             viewFromTop = false;
         }
         else
         {
-            sprite.sprite = spriteTop;
+            spriteRenderer.sprite = spriteTop;
             viewFromTop = true;
         }
     }
