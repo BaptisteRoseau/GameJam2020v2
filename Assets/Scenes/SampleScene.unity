@@ -683,6 +683,11 @@ PrefabInstance:
       propertyPath: crosshairMovementCommand
       value: CrosshairMove2
       objectReference: {fileID: 0}
+    - target: {fileID: 3470370759368747536, guid: c7216fbcab7e25e4f9dd36a117fbb616,
+        type: 3}
+      propertyPath: playerFactor
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 3470370759368747540, guid: c7216fbcab7e25e4f9dd36a117fbb616,
         type: 3}
       propertyPath: m_Name
