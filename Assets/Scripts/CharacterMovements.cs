@@ -41,8 +41,8 @@ public class CharacterMovements : MonoBehaviour
         }
         else if (num_player == 2)
         {
-            moveInputH = Input.GetAxis("Vertical2");
-            moveInputV = Input.GetAxis("Horizontal2");
+            moveInputH = -Input.GetAxis("Vertical2");
+            moveInputV = -Input.GetAxis("Horizontal2");
         }
 
         rb.velocity = new Vector2(moveInputH * speed, rb.velocity.y);
