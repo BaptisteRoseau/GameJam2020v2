@@ -71,15 +71,14 @@ public class Commands : MonoBehaviour
      
     public void rotateKeyboard()
     {
-        player.GetComponent<Player>().transform.RotateAround(player.transform.position, Vector3.forward, Input.GetAxisRaw(keyboardCrosshairMovementCommand) * Time.fixedDeltaTime * -crosshairSpeed);
-        player_cpy.GetComponent<Player>().transform.RotateAround(player_cpy.transform.position, Vector3.forward, Input.GetAxisRaw(keyboardCrosshairMovementCommand) * Time.fixedDeltaTime * -crosshairSpeed);
+        player.GetComponent<Player>().center.transform.RotateAround(player.transform.position, Vector3.forward, Input.GetAxisRaw(keyboardCrosshairMovementCommand) * Time.fixedDeltaTime * -crosshairSpeed);
+        player_cpy.GetComponent<Player>().center.transform.RotateAround(player_cpy.transform.position, Vector3.forward, Input.GetAxisRaw(keyboardCrosshairMovementCommand) * Time.fixedDeltaTime * -crosshairSpeed);
     }
 
 
     // JOYSTICK INPUTS
     public void moveJoystick()
     {
-        // TODO
         moveInputV = playerFactor * Gamepad.current.leftStick.y.ReadValue();//Input.GetAxis("HorizontalJoystick");
         moveInputH = playerFactor * Gamepad.current.leftStick.x.ReadValue();
 
@@ -92,7 +91,6 @@ public class Commands : MonoBehaviour
 
     public void rotateJoystick()
     {
-        // FIXME: rotate 
         Vector3 lookDirection = new Vector3(Gamepad.current.rightStick.x.ReadValue(), Gamepad.current.rightStick.y.ReadValue(), 0.0f);
         if (lookDirection.x != 0 && lookDirection.y != 0)
         {

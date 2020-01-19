@@ -53,7 +53,7 @@ public class Player : MonoBehaviour
         rb.velocity = new Vector2(moveInputV * speed, rb.velocity.y);
         rb.velocity = new Vector2(moveInputH * speed, rb.velocity.x);
 
-        center.transform.RotateAround(this.transform.position, Vector3.forward, crosshairMovement * Time.fixedDeltaTime * -crosshairSpeed);
+        //center.transform.RotateAround(this.transform.position, Vector3.forward, crosshairMovement * Time.fixedDeltaTime * -crosshairSpeed);
 
         if (this.hp <= this.bleedingThreshold)
         {
