@@ -84,7 +84,7 @@ public class rules : MonoBehaviour
     }
 
 
-        public void MenuButton()
+    public void MenuButton()
     {
         SceneManager.LoadScene("Menu");
     }
