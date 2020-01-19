@@ -40,8 +40,6 @@ public class rules : MonoBehaviour
            GameObject.FindGameObjectWithTag("winText").GetComponent<Text>().text = "GOOD Game ! Joueur "+ win +" WIN !";
            GameObject.FindWithTag("loseText").GetComponent<Text>().text = "Joueur "+ lose +" You are DEAD";
 
-
-            Ending.SetActive(true);
         }
     }
 
@@ -55,7 +53,7 @@ public class rules : MonoBehaviour
                 PlayerPrefs.SetInt("Player1Score", PlayerPrefs.GetInt("Player1Score") + 1);
             }else if (player1.GetComponent<Player>().hp < player2.GetComponent<Player>().hp)
             {
-                PlayerPrefs.SetInt("Player2Score", PlayerPrefs.GetInt("Player1Score") + 1);
+                PlayerPrefs.SetInt("Player2Score", PlayerPrefs.GetInt("Player2Score") + 1);
             }
             SceneManager.LoadScene("SampleScene");
         }
@@ -67,7 +65,7 @@ public class rules : MonoBehaviour
         {
             if(yes.GetComponent<Player>().num_player == 1)
             {
-                PlayerPrefs.SetInt("Player2Score", PlayerPrefs.GetInt("Player1Score") + 1);
+                PlayerPrefs.SetInt("Player2Score", PlayerPrefs.GetInt("Player2Score") + 1);
             }else if (yes.GetComponent<Player>().num_player == 2)
             {
                 PlayerPrefs.SetInt("Player1Score", PlayerPrefs.GetInt("Player1Score") + 1);
