@@ -9,6 +9,10 @@ public class SpawnPowerUps : MonoBehaviour
     public GameObject[] objects;       // Object to be spawned
     public Transform[] spawnPoints;
 
+    public float duplicateOffsetX = 0.0f;
+    public float duplicateOffsetY = 0.0f;
+    public bool duplicate = false;
+
     private float nextCall = 0.0f;
 
     private void Update()
@@ -32,5 +36,7 @@ public class SpawnPowerUps : MonoBehaviour
 
         // Create an instance of the enemy prefab at the randomly selected spawn point's position and rotation.
         Instantiate(objects[objectIndex], spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
+        if (duplicate)
+            Instantiate(objects[objectIndex], spawnPoints[spawnPointIndex].position + new Vector3(duplicateOffsetX, duplicateOffsetY, 0.0f), spawnPoints[spawnPointIndex].rotation);
     }
 }
