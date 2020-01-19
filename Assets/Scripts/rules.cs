@@ -37,8 +37,8 @@ public class rules : MonoBehaviour
             }
 
             Ending.SetActive(true);
-           GameObject.FindGameObjectWithTag("winText").GetComponent<Text>().text = "GOOD Game ! Joueur "+ win +" WIN !";
-           GameObject.FindWithTag("loseText").GetComponent<Text>().text = "Joueur "+ lose +" You are DEAD";
+           GameObject.FindGameObjectWithTag("winText").GetComponent<Text>().text = "GOOD Game ! Player "+ win +" WIN !";
+           GameObject.FindWithTag("loseText").GetComponent<Text>().text = "Player "+ lose +" You are DEAD";
 
         }
     }
