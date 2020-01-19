@@ -61,10 +61,10 @@ public class rules : MonoBehaviour
         {
             if(yes.GetComponent<Player>().num_player == 1)
             {
-                PlayerPrefs.SetInt("Player2Score", PlayerPrefs.GetInt("Player2Score") + 1);
+                PlayerPrefs.SetInt("Player2Score", PlayerPrefs.GetInt("Player2Score") + 2);
             }else if (yes.GetComponent<Player>().num_player == 2)
             {
-                PlayerPrefs.SetInt("Player1Score", PlayerPrefs.GetInt("Player1Score") + 1);
+                PlayerPrefs.SetInt("Player1Score", PlayerPrefs.GetInt("Player1Score") + 2);
             }
             SceneManager.LoadScene("SampleScene");
         }
