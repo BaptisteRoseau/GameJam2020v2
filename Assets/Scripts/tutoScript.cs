@@ -1,13 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class tutoScript : MonoBehaviour
 {
+
+    private GameObject score ;
+    private GameObject moon ;
+    private bool firstTime = true;
+
     // Start is called before the first frame update
     void Start()
     {
-        Time.timeScale = 0;
+        
     }
 
     // Update is called once per frame
@@ -18,7 +24,6 @@ public class tutoScript : MonoBehaviour
 
     public void run()
     {
-        Time.timeScale = 1;
-        gameObject.SetActive(false);
+        SceneManager.LoadScene("SampleScene");
     }
 }

@@ -17,6 +17,7 @@ public class rules : MonoBehaviour
     public GameObject Ending;
     private int scoreMax = 3;
     public Sprite image;
+    public GameObject endImage;
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +32,7 @@ public class rules : MonoBehaviour
             Time.timeScale = 0;
             if(sp1 >= scoreMax)
             {
-                GameObject.FindWithTag("EndImage").GetComponent<Image>().sprite = image;
+                endImage.GetComponent<Image>().sprite = image;
             }
 
             Ending.SetActive(true);
