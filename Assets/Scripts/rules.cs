@@ -16,6 +16,7 @@ public class rules : MonoBehaviour
 
     public GameObject Ending;
     private int scoreMax = 3;
+    public Sprite image;
 
     // Start is called before the first frame update
     void Start()
@@ -28,17 +29,12 @@ public class rules : MonoBehaviour
         if(sp1 >= scoreMax || sp2 >= scoreMax)
         {
             Time.timeScale = 0;
-            int win = 1;
-            int lose = 2;
-            if(sp1 < scoreMax)
+            if(sp1 >= scoreMax)
             {
-                win = 2;
-                lose = 1;
+                GameObject.FindWithTag("EndImage").GetComponent<Image>().sprite = image;
             }
 
             Ending.SetActive(true);
-           GameObject.FindGameObjectWithTag("winText").GetComponent<Text>().text = "GOOD Game ! Player "+ win +" WIN !";
-           GameObject.FindWithTag("loseText").GetComponent<Text>().text = "Player "+ lose +" You are DEAD";
 
         }
     }
@@ -65,10 +61,10 @@ public class rules : MonoBehaviour
         {
             if(yes.GetComponent<Player>().num_player == 1)
             {
-                PlayerPrefs.SetInt("Player2Score", PlayerPrefs.GetInt("Player2Score") + 1);
+                PlayerPrefs.SetInt("Player2Score", PlayerPrefs.GetInt("Player2Score") + 2);
             }else if (yes.GetComponent<Player>().num_player == 2)
             {
-                PlayerPrefs.SetInt("Player1Score", PlayerPrefs.GetInt("Player1Score") + 1);
+                PlayerPrefs.SetInt("Player1Score", PlayerPrefs.GetInt("Player1Score") + 2);
             }
             SceneManager.LoadScene("SampleScene");
         }

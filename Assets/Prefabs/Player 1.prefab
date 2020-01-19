@@ -25,10 +25,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3470370759334974704}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.7726934, y: 0.25253376, z: 835.2642}
+  m_LocalPosition: {x: 0.34999996, y: 0, z: 0}
   m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_Children: []
-  m_Father: {fileID: 6011536480489744270}
+  m_Father: {fileID: 3470370759368747541}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3470370759334974606
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 3470370759368747537}
   - component: {fileID: 5899855561296640325}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Player 1
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -113,7 +113,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 6011536480489744270}
+  - {fileID: 3470370759334974705}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -133,13 +133,13 @@ MonoBehaviour:
   crosshairSpeed: 300
   crosshair: {fileID: 3470370759334974704}
   rb: {fileID: 0}
-  command: {fileID: 0}
   ballPrefab: {fileID: 7012869361308211707, guid: dcd0cb446edbbb349976f57efa0e7cbc,
     type: 3}
   arrowSpeed: 20
   num_player: 1
   holdedObjects: []
   child: {fileID: 0}
+  player_animator: {fileID: 5899855561296640325}
   fireCommand: Fire
   moveHorizontallyCommand: Horizontal
   moveVerticalyCommand: Vertical
@@ -150,8 +150,6 @@ MonoBehaviour:
   bloodStainPrefab: {fileID: 978486254060528915, guid: 33bc2a611f6c8a24280dc8ac86d80085,
     type: 3}
   period: 0.3
-  player_animator: {fileID: 5899855561296640325}
-  center: {fileID: 3927309239919343480}
   firstGame: 0
 --- !u!50 &3470370759368747539
 Rigidbody2D:
@@ -259,34 +257,3 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!1 &3927309239919343480
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6011536480489744270}
-  m_Layer: 0
-  m_Name: Center
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6011536480489744270
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3927309239919343480}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.42269343, y: -0.25253376, z: -835.2642}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 3470370759334974705}
-  m_Father: {fileID: 3470370759368747541}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -39,7 +39,7 @@ public class Gun : PowerUp
 
                 Belette ball = Instantiate(belettePrefab, crosshair.transform.position, Quaternion.identity).GetComponent<Belette>();
                 ball.fromPlayer = playerComponenent.num_player;
-                ball.transform.rotation = playerComponenent.transform.rotation;
+                ball.transform.rotation = playerComponenent.center.transform.rotation;
                 ball.GetComponent<Rigidbody2D>().velocity = shootingDirection * arrowSpeed;
 
                 ammoLeft--;
