@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d700d19dd8f6af04da9270a0f452f2b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 6
   crosshairSpeed: 250
   crosshair: {fileID: 3470370759334974704}
   rb: {fileID: 0}
@@ -149,6 +149,7 @@ MonoBehaviour:
   bloodStainPrefab: {fileID: 978486254060528915, guid: 33bc2a611f6c8a24280dc8ac86d80085,
     type: 3}
   period: 0.3
+  firstGame: 0
 --- !u!50 &3470370759368747539
 Rigidbody2D:
   serializedVersion: 4

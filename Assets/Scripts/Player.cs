@@ -64,7 +64,7 @@ public class Player : MonoBehaviour
     public void pickUpObject(GameObject obj)
     {
         // Deleting previous instance of object if already present
-        if (holdedObjects.Contains(obj))
+        if (containsName(obj.name))
         {
             GameObject previousObject = holdedObjects.Find(r => r.name == obj.name);
             dropObject(previousObject);
@@ -83,6 +83,16 @@ public class Player : MonoBehaviour
 
         // Some debugg
         holdedObjects.ForEach(Debug.Log);
+    }
+
+    bool containsName(string s)
+    {
+        foreach(GameObject c in holdedObjects)
+        {
+            if(c.name == s)
+                return true;
+        }
+        return false;
     }
 
     // Drop the object from the player and destroy it
