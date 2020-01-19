@@ -13,6 +13,7 @@ public class Commands : MonoBehaviour
     public bool isJoystick = false;
 
     public GameObject player;
+    public GameObject player_cpy;
 
     // Command binding for the current player
     public string keyboardFireCommand              = "Fire";
@@ -26,6 +27,7 @@ public class Commands : MonoBehaviour
 
     // PRivate attributes
     private Rigidbody2D rb;
+    private Rigidbody2D rb_cpy;
     private float moveInputH;
     private float moveInputV;
 
@@ -33,6 +35,7 @@ public class Commands : MonoBehaviour
     void Start()
     {
         rb = player.GetComponent<Player>().GetComponent<Rigidbody2D>();
+        rb_cpy = player_cpy.GetComponent<Player>().GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -60,26 +63,36 @@ public class Commands : MonoBehaviour
         moveInputH = playerFactor * Input.GetAxis(keyboardMoveHorizontallyCommand);
         rb.velocity = new Vector2(moveInputV * speed, rb.velocity.y);
         rb.velocity = new Vector2(moveInputH * speed, rb.velocity.x);
-    }
 
+        rb_cpy.velocity = new Vector2(moveInputV * speed, rb_cpy.velocity.y);
+        rb_cpy.velocity = new Vector2(moveInputH * speed, rb_cpy.velocity.x);
+    }
+     
     public void rotateKeyboard()
     {
         player.GetComponent<Player>().transform.RotateAround(player.transform.position, Vector3.forward, Input.GetAxisRaw(keyboardCrosshairMovementCommand) * Time.fixedDeltaTime * -crosshairSpeed);
+        player_cpy.GetComponent<Player>().transform.RotateAround(player_cpy.transform.position, Vector3.forward, Input.GetAxisRaw(keyboardCrosshairMovementCommand) * Time.fixedDeltaTime * -crosshairSpeed);
     }
 
 
     // JOYSTICK INPUTS
     public void moveJoystick()
     {
+        // TODO
         moveInputV = playerFactor * Input.GetAxis("HorizontalJoystick");
         moveInputH = playerFactor * Input.GetAxis("VerticalJoystick");
+
         rb.velocity = new Vector2(moveInputV * speed, rb.velocity.y);
         rb.velocity = new Vector2(moveInputH * speed, rb.velocity.x);
+
+        rb_cpy.velocity = new Vector2(moveInputV * speed, rb_cpy.velocity.y);
+        rb_cpy.velocity = new Vector2(moveInputH * speed, rb_cpy.velocity.x);
     }
 
     public void rotateJoystick()
     {
         Vector3 lookDirection = new Vector3(Input.GetAxis("HorizontalJoystick"), 0, Input.GetAxis("VerticalJoystick"));
         player.GetComponent<Player>().transform.rotation = Quaternion.LookRotation(lookDirection);
+        player_cpy.GetComponent<Player>().transform.rotation = Quaternion.LookRotation(lookDirection);
     }
 }
