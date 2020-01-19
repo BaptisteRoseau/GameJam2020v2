@@ -21,7 +21,6 @@ public class Player : MonoBehaviour
     public List<GameObject> holdedObjects;
     public Transform child;
 
-    public Animator player_animator;
 
     // Player commands
     public string fireCommand = "Fire";
@@ -36,6 +35,10 @@ public class Player : MonoBehaviour
     public float period;
     private float time = 0;
 
+    public Animator player_animator;
+
+    public GameObject center;
+
     public bool firstGame = false   ;
     void Start()
     {
@@ -49,16 +52,28 @@ public class Player : MonoBehaviour
         moveInputH = playerFactor*Input.GetAxis(moveHorizontallyCommand);
         crosshairMovement = Input.GetAxisRaw(crosshairMovementCommand);
 
-        rb.velocity = new Vector2(moveInputV * speed, rb.velocity.y);
-        rb.velocity = new Vector2(moveInputH * speed, rb.velocity.x);
+        moveInputV = Input.GetAxis(moveVerticalyCommand);
+        moveInputH = Input.GetAxis(moveHorizontallyCommand);
 
-        gameObject.transform.RotateAround(this.transform.position, Vector3.forward, crosshairMovement * Time.fixedDeltaTime * -crosshairSpeed);
-        
         player_animator.SetFloat("speedX", -moveInputH);
         player_animator.SetFloat("speedY", moveInputV);
         
         // Updating animator
         player_animator.SetBool("IsRunning", moveInputH != 0 || moveInputV != 0);
+
+        if (moveInputH != 0 || moveInputV != 0)
+        {
+            player_animator.SetBool("IsRunning", true);
+        }
+        else
+        {
+            player_animator.SetBool("IsRunning", false);
+        }
+
+        rb.velocity = new Vector2(moveInputV * speed, rb.velocity.y);
+        rb.velocity = new Vector2(moveInputH * speed, rb.velocity.x);
+
+        center.transform.RotateAround(this.transform.position, Vector3.forward, crosshairMovement * Time.fixedDeltaTime * -crosshairSpeed);
 
         if (this.hp <= this.bleedingThreshold)
         {
@@ -82,14 +97,14 @@ public class Player : MonoBehaviour
         }
 
         // Linking power up 
-        obj.transform.parent = gameObject.transform;
+        obj.transform.parent = center.transform;
 
         // Adding obj to the holded objects of the 
         holdedObjects.Add(obj);
 
         // Replacing the sprite on the crosshair
         obj.transform.position = crosshair.transform.position;
-        obj.transform.rotation = transform.rotation;
+        obj.transform.rotation = crosshair.transform.rotation;
 
         // Some debugg
         holdedObjects.ForEach(Debug.Log);
