@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.InputSystem;
 using UnityEngine;
 
 public class Commands : MonoBehaviour
@@ -79,8 +80,8 @@ public class Commands : MonoBehaviour
     public void moveJoystick()
     {
         // TODO
-        moveInputV = playerFactor * Input.GetAxis("HorizontalJoystick");
-        moveInputH = playerFactor * Input.GetAxis("VerticalJoystick");
+        moveInputV = playerFactor * Gamepad.current.leftStick.y.ReadValue();//Input.GetAxis("HorizontalJoystick");
+        moveInputH = playerFactor * Gamepad.current.leftStick.x.ReadValue();
 
         rb.velocity = new Vector2(moveInputV * speed, rb.velocity.y);
         rb.velocity = new Vector2(moveInputH * speed, rb.velocity.x);
@@ -91,8 +92,19 @@ public class Commands : MonoBehaviour
 
     public void rotateJoystick()
     {
-        Vector3 lookDirection = new Vector3(Input.GetAxis("HorizontalJoystick"), 0, Input.GetAxis("VerticalJoystick"));
-        player.GetComponent<Player>().transform.rotation = Quaternion.LookRotation(lookDirection);
-        player_cpy.GetComponent<Player>().transform.rotation = Quaternion.LookRotation(lookDirection);
+        // FIXME: rotate 
+        Vector3 lookDirection = new Vector3(Gamepad.current.rightStick.x.ReadValue(), Gamepad.current.rightStick.y.ReadValue(), 0.0f);
+        if (lookDirection.x != 0 && lookDirection.y != 0)
+        {
+            Debug.Log(lookDirection);
+            player.GetComponent<Player>().transform.rotation = Quaternion.LookRotation(lookDirection.normalized, Vector3.back);
+            player_cpy.GetComponent<Player>().transform.rotation = Quaternion.LookRotation(lookDirection.normalized, Vector3.back);
+        }
+    }
+
+    // MISC
+    public bool isMoving()
+    {
+        return moveInputH != 0 || moveInputV != 0;
     }
 }

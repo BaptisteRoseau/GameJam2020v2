@@ -47,28 +47,8 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
-        
-        moveInputV = playerFactor*Input.GetAxis(moveVerticalyCommand);
-        moveInputH = playerFactor*Input.GetAxis(moveHorizontallyCommand);
-        crosshairMovement = Input.GetAxisRaw(crosshairMovementCommand);
-
-        moveInputV = Input.GetAxis(moveVerticalyCommand);
-        moveInputH = Input.GetAxis(moveHorizontallyCommand);
-
-        player_animator.SetFloat("speedX", -moveInputH);
-        player_animator.SetFloat("speedY", moveInputV);
-        
         // Updating animator
-        player_animator.SetBool("IsRunning", moveInputH != 0 || moveInputV != 0);
-
-        if (moveInputH != 0 || moveInputV != 0)
-        {
-            player_animator.SetBool("IsRunning", true);
-        }
-        else
-        {
-            player_animator.SetBool("IsRunning", false);
-        }
+        player_animator.SetBool("IsRunning", command.isMoving());
 
         rb.velocity = new Vector2(moveInputV * speed, rb.velocity.y);
         rb.velocity = new Vector2(moveInputH * speed, rb.velocity.x);
