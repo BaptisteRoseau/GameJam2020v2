@@ -129,8 +129,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d700d19dd8f6af04da9270a0f452f2b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 6
-  crosshairSpeed: 250
+  speed: 4
+  crosshairSpeed: 300
   crosshair: {fileID: 3470370759334974704}
   rb: {fileID: 0}
   ballPrefab: {fileID: 7012869361308211707, guid: dcd0cb446edbbb349976f57efa0e7cbc,
@@ -139,6 +139,7 @@ MonoBehaviour:
   num_player: 1
   holdedObjects: []
   child: {fileID: 0}
+  player_animator: {fileID: 5899855561296640325}
   fireCommand: Fire
   moveHorizontallyCommand: Horizontal
   moveVerticalyCommand: Vertical
