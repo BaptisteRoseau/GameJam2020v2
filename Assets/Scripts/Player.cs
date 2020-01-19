@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     public GameObject crosshair;
 
     public Rigidbody2D rb;
+    public Commands command;
 
     public GameObject ballPrefab;
     public float arrowSpeed;
@@ -43,6 +44,7 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
+        /*
         moveInputV = playerFactor*Input.GetAxis(moveVerticalyCommand);
         moveInputH = playerFactor*Input.GetAxis(moveHorizontallyCommand);
         crosshairMovement = Input.GetAxisRaw(crosshairMovementCommand);
@@ -51,17 +53,12 @@ public class Player : MonoBehaviour
         rb.velocity = new Vector2(moveInputH * speed, rb.velocity.x);
 
         gameObject.transform.RotateAround(this.transform.position, Vector3.forward, crosshairMovement * Time.fixedDeltaTime * -crosshairSpeed);
-
+        */
         player_animator.SetFloat("speedX", -moveInputH);
         player_animator.SetFloat("speedY", moveInputV);
-
-        if (moveInputH != 0 || moveInputV != 0)
-        {
-            player_animator.SetBool("IsRunning", true);
-        } else
-        {
-            player_animator.SetBool("IsRunning", false);
-        }
+        
+        // Updating animator
+        player_animator.SetBool("IsRunning", moveInputH != 0 || moveInputV != 0);
 
         if (this.hp <= this.bleedingThreshold)
         {
