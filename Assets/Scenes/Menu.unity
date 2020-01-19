@@ -404,7 +404,7 @@ GameObject:
   - component: {fileID: 29096329}
   - component: {fileID: 29096328}
   m_Layer: 5
-  m_Name: QUIT
+  m_Name: RETOUR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -419,7 +419,7 @@ RectTransform:
   m_GameObject: {fileID: 29096326}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2083, y: 1.2083, z: 1.2083}
   m_Children:
   - {fileID: 1890259884}
   m_Father: {fileID: 1081709106}
@@ -427,7 +427,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -50.9, y: -64}
+  m_AnchoredPosition: {x: 178.6, y: -93.8}
   m_SizeDelta: {x: 103, y: 41.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &29096328
@@ -450,9 +450,9 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.4811321, g: 0.38354397, b: 0.38354397, a: 1}
-    m_PressedColor: {r: 0.2924528, g: 0.20278569, b: 0.20278569, a: 1}
+    m_NormalColor: {r: 0, g: 0, b: 0, a: 0.09803922}
+    m_HighlightedColor: {r: 0.7921569, g: 0.5019608, b: 0.03529412, a: 1}
+    m_PressedColor: {r: 0.2901961, g: 0.29411766, b: 0.20278569, a: 0.09411765}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1.73
@@ -699,7 +699,7 @@ GameObject:
   - component: {fileID: 460438354}
   - component: {fileID: 460438353}
   m_Layer: 5
-  m_Name: Options
+  m_Name: COMMANDES
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -714,7 +714,7 @@ RectTransform:
   m_GameObject: {fileID: 460438351}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5658, y: 1.5658, z: 1.5658}
   m_Children:
   - {fileID: 176233778}
   m_Father: {fileID: 1081709106}
@@ -722,7 +722,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -50.899994, y: 54}
+  m_AnchoredPosition: {x: 13.7, y: 129.1}
   m_SizeDelta: {x: 164.6, y: 37.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &460438353
@@ -747,7 +747,7 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 0, g: 0, b: 0, a: 0}
     m_HighlightedColor: {r: 0.4811321, g: 0.38354397, b: 0.38354397, a: 0}
-    m_PressedColor: {r: 0.7921569, g: 0.5019608, b: 0.03529412, a: 0}
+    m_PressedColor: {r: 0.2901961, g: 0.29411766, b: 0.20392157, a: 0}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1.73
@@ -865,7 +865,7 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 0, g: 0, b: 0, a: 0.09803922}
     m_HighlightedColor: {r: 0.7924528, g: 0.50119203, b: 0.03364185, a: 1}
-    m_PressedColor: {r: 0.2924528, g: 0.20278569, b: 0.20278569, a: 1}
+    m_PressedColor: {r: 0.29191557, g: 0.29411766, b: 0.20392157, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1.73
@@ -1269,6 +1269,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1044523591}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &704698045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1367,7 +1378,7 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 0, g: 0, b: 0, a: 0.09803922}
     m_HighlightedColor: {r: 0.7921569, g: 0.5019608, b: 0.03529412, a: 1}
-    m_PressedColor: {r: 0.2924528, g: 0.20278569, b: 0.20278569, a: 1}
+    m_PressedColor: {r: 0.2901961, g: 0.29411766, b: 0.20278569, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1.73
@@ -1616,7 +1627,7 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 0, g: 0, b: 0, a: 0.09411765}
     m_HighlightedColor: {r: 0.7921569, g: 0.5019608, b: 0.03529412, a: 1}
-    m_PressedColor: {r: 0.2924528, g: 0.20278569, b: 0.20278569, a: 1}
+    m_PressedColor: {r: 0.2901961, g: 0.29411766, b: 0.20278569, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1.73
@@ -1649,6 +1660,17 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 1354158136}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1044523591}
         m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
@@ -1942,7 +1964,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1081709106
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2639,15 +2661,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: RETOUR
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
+  m_sharedMaterial: {fileID: 2140474, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
