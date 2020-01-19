@@ -33,6 +33,7 @@ public class Player : MonoBehaviour
     public float period;
     private float time = 0;
 
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
