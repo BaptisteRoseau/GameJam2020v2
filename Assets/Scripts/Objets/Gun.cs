@@ -28,7 +28,7 @@ public class Gun : PowerUp
         componentAmmoLeftText = GameObject.Find("AmmoLeftText"+ player.GetComponent<Player>().num_player.ToString());
 
         // Fire one shot
-        if (Input.GetButtonDown(player.GetComponent<Player>().fireCommand))
+        if (Input.GetButtonDown(player.GetComponent<Player>().command.GetComponent<Commands>().keyboardFireCommand))
         {
             if (ammoLeft > 0 && Time.time > nextShotTime)
             {

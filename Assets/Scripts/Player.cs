@@ -4,11 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public float speed;
-    public float crosshairSpeed;
     private float crosshairMovement = 0f;
-    private float moveInputH;
-    private float moveInputV;
     public GameObject crosshair;
 
     public Rigidbody2D rb;
@@ -18,26 +14,18 @@ public class Player : MonoBehaviour
     public float arrowSpeed;
     public int num_player;
     
+    public Animator player_animator;
     public List<GameObject> holdedObjects;
     public Transform child;
-
-
-    // Player commands
-    public string fireCommand = "Fire";
-    public string moveHorizontallyCommand = "Horizontal";
-    public string moveVerticalyCommand = "Vertical";
-    public string crosshairMovementCommand = "CrosshairMove";
-    public int playerFactor = 1; // or -1 for player 2
-
+    public GameObject center;
+    
     public int hp;
     public int bleedingThreshold;
     public GameObject bloodStainPrefab;
     public float period;
     private float time = 0;
 
-    public Animator player_animator;
 
-    public GameObject center;
 
     public bool firstGame = false   ;
     void Start()
@@ -49,11 +37,6 @@ public class Player : MonoBehaviour
     {
         // Updating animator
         player_animator.SetBool("IsRunning", command.isMoving());
-
-        rb.velocity = new Vector2(moveInputV * speed, rb.velocity.y);
-        rb.velocity = new Vector2(moveInputH * speed, rb.velocity.x);
-
-        //center.transform.RotateAround(this.transform.position, Vector3.forward, crosshairMovement * Time.fixedDeltaTime * -crosshairSpeed);
 
         if (this.hp <= this.bleedingThreshold)
         {
