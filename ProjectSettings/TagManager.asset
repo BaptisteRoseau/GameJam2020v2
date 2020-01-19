@@ -16,6 +16,8 @@ TagManager:
   - winText
   - yesyes
   - EndImage
+  - moonUi
+  - scoresUi
   layers:
   - Default
   - TransparentFX
