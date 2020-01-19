@@ -15,6 +15,7 @@ TagManager:
   - wintext
   - winText
   - yesyes
+  - EndImage
   layers:
   - Default
   - TransparentFX
