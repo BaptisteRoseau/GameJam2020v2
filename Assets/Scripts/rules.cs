@@ -86,6 +86,10 @@ public class rules : MonoBehaviour
 
     public void MenuButton()
     {
+        Time.timeScale = 1;
+        Ending.SetActive(false);
+        PlayerPrefs.SetInt("Player1Score", 0);
+        PlayerPrefs.SetInt("Player2Score", 0);
         SceneManager.LoadScene("Menu");
     }
 
