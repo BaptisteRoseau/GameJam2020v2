@@ -12,26 +12,33 @@ public class SpawnPowerUps : MonoBehaviour
 
     // Similar to InvokeRepeating but with a random wait between minTime and maxTime
     public delegate void MethodToCall(); //A delegate - you can pass in any method with the signature void xxx() in this case!
-    public IEnumerator InvokeRepeatingRange(MethodToCall method, float timeUntilStart, float minTime, float maxTime)
+    public void InvokeRepeatingRange(MethodToCall method, float timeUntilStart, float minTime, float maxTime)
     {
-        yield return new WaitForSeconds(timeUntilStart);
-        while (true)
-        {
-            method(); //This calls the method you passed in
-            yield return new WaitForSeconds(Random.Range(minTime, maxTime));
-        }
+        
     }
 
     // Start is called before the first frame update
-    void Start()
+    /*void Start()
+    {
+
+    }*/
+
+    private void Update()
     {
         // Call the Spawn function after a delay of the spawnTime and then continue to call after the same amount of time.
-        InvokeRepeatingRange(SpawnObject, 0.0f, spawnTimeMin, spawnTimeMax);
+        float nextCall = 0.0f;
+        while (Time.realtimeSinceStartup > nextCall)
+        {
+            Debug.Log("Called");
+            SpawnObject(); //This calls the method you passed in
+            nextCall = Time.realtimeSinceStartup + Random.Range(spawnTimeMin, spawnTimeMax);
+        }
     }
 
     // Spawns random object from the "objects" list at the "spawnPoints" position
     void SpawnObject()
     {
+        Debug.Log("Spawned");
         // Find a random index between zero and one less than the number of spawn points.
         int spawnPointIndex = Random.Range(0, spawnPoints.Length);
         int objectIndex = Random.Range(0, objects.Length);
