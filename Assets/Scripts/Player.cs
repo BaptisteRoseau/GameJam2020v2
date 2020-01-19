@@ -20,6 +20,8 @@ public class Player : MonoBehaviour
     public List<GameObject> holdedObjects;
     public Transform child;
 
+    public Animator player_animator;
+
     // Player commands
     public string fireCommand = "Fire";
     public string moveHorizontallyCommand = "Horizontal";
@@ -50,7 +52,18 @@ public class Player : MonoBehaviour
 
         gameObject.transform.RotateAround(this.transform.position, Vector3.forward, crosshairMovement * Time.fixedDeltaTime * -crosshairSpeed);
 
-        if(this.hp <= this.bleedingThreshold)
+        player_animator.SetFloat("speedX", -moveInputH);
+        player_animator.SetFloat("speedY", moveInputV);
+
+        if (moveInputH != 0 || moveInputV != 0)
+        {
+            player_animator.SetBool("IsRunning", true);
+        } else
+        {
+            player_animator.SetBool("IsRunning", false);
+        }
+
+        if (this.hp <= this.bleedingThreshold)
         {
             this.time += Time.fixedDeltaTime;
             if (this.time >= this.period) {
@@ -64,7 +77,7 @@ public class Player : MonoBehaviour
     public void pickUpObject(GameObject obj)
     {
         // Deleting previous instance of object if already present
-        if (holdedObjects.Contains(obj))
+        if (containsName(obj.name))
         {
             GameObject previousObject = holdedObjects.Find(r => r.name == obj.name);
             dropObject(previousObject);
@@ -83,6 +96,16 @@ public class Player : MonoBehaviour
 
         // Some debugg
         holdedObjects.ForEach(Debug.Log);
+    }
+
+    bool containsName(string s)
+    {
+        foreach(GameObject c in holdedObjects)
+        {
+            if(c.name == s)
+                return true;
+        }
+        return false;
     }
 
     // Drop the object from the player and destroy it
