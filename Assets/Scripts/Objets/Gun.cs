@@ -37,6 +37,8 @@ public class Gun : PowerUp
                 Vector2 shootingDirection = crosshair.transform.position - player.transform.position;
                 shootingDirection.Normalize();
 
+                FindObjectOfType<audioManager>().Play("shot");
+
                 Belette ball = Instantiate(belettePrefab, crosshair.transform.position, Quaternion.identity).GetComponent<Belette>();
                 ball.fromPlayer = playerComponenent.num_player;
                 ball.transform.rotation = playerComponenent.center.transform.rotation;

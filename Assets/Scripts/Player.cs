@@ -59,6 +59,7 @@ public class Player : MonoBehaviour
             Debug.Log("Found and removed previous " + obj.name);
         }
 
+
         // Linking power up 
         obj.transform.parent = center.transform;
 
