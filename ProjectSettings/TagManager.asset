@@ -55,3 +55,9 @@ TagManager:
   - name: MurExt
     uniqueID: 1035902159
     locked: 0
+  - name: Light1
+    uniqueID: 3579824823
+    locked: 0
+  - name: Light2
+    uniqueID: 322420521
+    locked: 0
