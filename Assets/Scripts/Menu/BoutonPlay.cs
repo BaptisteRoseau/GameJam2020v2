@@ -16,4 +16,9 @@ public class BoutonPlay : MonoBehaviour
         Debug.Log("QUIT !");
         Application.Quit(); 
     }
+
+    public void MenuButton()
+    {
+        SceneManager.LoadScene("Menu");
+    }
 }
