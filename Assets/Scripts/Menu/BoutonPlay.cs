@@ -8,7 +8,7 @@ public class BoutonPlay : MonoBehaviour
 
     public void PlayButton()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("Advice");
     }
 
     public void QuitGame()
