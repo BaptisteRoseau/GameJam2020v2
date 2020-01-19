@@ -82,4 +82,11 @@ public class rules : MonoBehaviour
         PlayerPrefs.SetInt("Player2Score", 0);
         SceneManager.LoadScene("SampleScene");
     }
+
+
+        public void MenuButton()
+    {
+        SceneManager.LoadScene("Menu");
+    }
+
 }
