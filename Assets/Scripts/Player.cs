@@ -44,7 +44,7 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
-        /*
+        
         moveInputV = playerFactor*Input.GetAxis(moveVerticalyCommand);
         moveInputH = playerFactor*Input.GetAxis(moveHorizontallyCommand);
         crosshairMovement = Input.GetAxisRaw(crosshairMovementCommand);
@@ -53,7 +53,7 @@ public class Player : MonoBehaviour
         rb.velocity = new Vector2(moveInputH * speed, rb.velocity.x);
 
         gameObject.transform.RotateAround(this.transform.position, Vector3.forward, crosshairMovement * Time.fixedDeltaTime * -crosshairSpeed);
-        */
+        
         player_animator.SetFloat("speedX", -moveInputH);
         player_animator.SetFloat("speedY", moveInputV);
         
