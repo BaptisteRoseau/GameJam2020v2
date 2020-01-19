@@ -8,6 +8,13 @@ TagManager:
   - Bullet
   - Weapon
   - Menu
+  - Score1
+  - UI
+  - EndScreen
+  - loseText
+  - wintext
+  - winText
+  - yesyes
   layers:
   - Default
   - TransparentFX

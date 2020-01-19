@@ -33,7 +33,7 @@ public class Player : MonoBehaviour
     public float period;
     private float time = 0;
 
-
+    public bool firstGame = false   ;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -98,6 +98,9 @@ public class Player : MonoBehaviour
         this.hp--;
         if (this.hp <= 0) 
         {
+            if(firstGame && GameObject.FindWithTag("UI") != null && GameObject.FindWithTag("UI").GetComponent<rules>() != null){
+                GameObject.FindWithTag("UI").GetComponent<rules>().playerHited(gameObject);
+            }
             Destroy(gameObject);
         }
     }
