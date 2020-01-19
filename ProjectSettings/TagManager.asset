@@ -45,3 +45,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: MurExt
+    uniqueID: 1035902159
+    locked: 0
