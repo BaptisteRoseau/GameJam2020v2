@@ -25,9 +25,8 @@ public class Player : MonoBehaviour
     public float period;
     private float time = 0;
 
-
-
-    public bool firstGame = false   ;
+    public bool firstGame = false;
+    
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
