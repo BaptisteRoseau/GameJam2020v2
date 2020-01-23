@@ -68,6 +68,7 @@ public class Player : MonoBehaviour
     // Attach the object to the player
     public void pickUpObject(GameObject obj)
     {
+        FindObjectOfType<audioManager>().Play("item");
         // Deleting previous instance of object if already present
         if (containsName(obj.name))
         {
