@@ -29,8 +29,8 @@ public class Commands : MonoBehaviour
     // PRivate attributes
     private Rigidbody2D rb;
     private Rigidbody2D rb_cpy;
-    private float moveInputH;
-    private float moveInputV;
+    public float moveInputH;
+    public float moveInputV;
 
     // Start is called before the first frame update
     void Start()

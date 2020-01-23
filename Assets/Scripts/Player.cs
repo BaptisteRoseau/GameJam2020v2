@@ -37,6 +37,24 @@ public class Player : MonoBehaviour
         // Updating animator
         player_animator.SetBool("IsRunning", command.isMoving());
 
+        if (Input.GetAxis(command.keyboardMoveHorizontallyCommand) < 0)
+        {
+            player_animator.SetFloat("speedX", 0.1f);
+        } else if (Input.GetAxis(command.keyboardMoveHorizontallyCommand) > 0)
+        {
+            player_animator.SetFloat("speedX", -0.1f);
+        }
+
+        if (Input.GetAxis(command.keyboardMoveVerticalyCommand) < 0)
+        {
+            player_animator.SetFloat("speedY", -0.1f);
+        }
+        else if (Input.GetAxis(command.keyboardMoveVerticalyCommand) > 0)
+        {
+            player_animator.SetFloat("speedY", 0.1f);
+        }
+
+
         if (this.hp <= this.bleedingThreshold)
         {
             this.time += Time.fixedDeltaTime;
