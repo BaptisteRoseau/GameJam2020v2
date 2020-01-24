@@ -52,6 +52,7 @@ public class Gun : PowerUp
                 Destroy(ball, 1f);
                 if (ammoLeft <= 0)
                 {
+                    player.GetComponent<Player>().dropObject(gameObject);
                     Destroy(gameObject);
                 }
             }

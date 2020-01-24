@@ -81,7 +81,7 @@ public class Player : MonoBehaviour
         // Linking power up 
         obj.transform.parent = center.transform;
 
-        // Adding obj to the holded objects of the 
+        // Adding obj to the holded objects of the player
         holdedObjects.Add(obj);
 
         // Replacing the sprite on the crosshair
@@ -107,7 +107,6 @@ public class Player : MonoBehaviour
     {
         // Droping power up 
         holdedObjects.Remove(obj);
-        Destroy(obj);
     }
 
     public void gotHit() 
